@@ -1,0 +1,55 @@
+// Version: 1.0.0
+type AppointmentId__729317175 = Nat;
+type AppointmentStatus__679172861 =
+  {#cancelled; #completed; #confirmed; #pending};
+type Appointment__372320418 =
+  {
+    clientEmail : Text;
+    clientName : Text;
+    clientPhone : Text;
+    createdAt : Timestamp__301639476;
+    date : Text;
+    id : AppointmentId__729317175;
+    referenceNumber : Text;
+    serviceId : ServiceId__271116140;
+    startTime : Text;
+    status : AppointmentStatus__679172861;
+    stylistId : StylistId__708580933
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type ServiceId__271116140 = Nat;
+type Service__263316222 =
+  {
+    description : Text;
+    durationMinutes : Nat;
+    id : ServiceId__271116140;
+    name : Text;
+    price : Nat
+  };
+type StylistId__708580933 = Nat;
+type Stylist__297477434 =
+  {var available : Bool; bio : Text; id : StylistId__708580933; name : Text};
+type Timestamp__301639476 = Int;
+actor {
+  stable var adminPrincipal : Principal;
+  stable appointments :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Appointment__372320418]];
+      var elementIndex : Nat__490723111
+    };
+  stable nextAppointmentId : [var Nat];
+  stable services :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Service__263316222]];
+      var elementIndex : Nat__490723111
+    };
+  stable stylists :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Stylist__297477434]];
+      var elementIndex : Nat__490723111
+    }
+};

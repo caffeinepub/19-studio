@@ -1,0 +1,80 @@
+type Timestamp = int;
+type TimeSlot = 
+ record {
+   date: text;
+   endTime: text;
+   isBooked: bool;
+   startTime: text;
+   stylistId: StylistId;
+ };
+type StylistPublic = 
+ record {
+   available: bool;
+   bio: text;
+   id: StylistId;
+   name: text;
+ };
+type StylistId = nat;
+type ServiceId = nat;
+type Service = 
+ record {
+   description: text;
+   durationMinutes: nat;
+   id: ServiceId;
+   name: text;
+   price: nat;
+ };
+type BookingResult = 
+ variant {
+   err: text;
+   ok: Appointment;
+ };
+type BookingRequest = 
+ record {
+   clientEmail: text;
+   clientName: text;
+   clientPhone: text;
+   date: text;
+   serviceId: ServiceId;
+   startTime: text;
+   stylistId: StylistId;
+ };
+type AppointmentStatus = 
+ variant {
+   cancelled;
+   completed;
+   confirmed;
+   pending;
+ };
+type AppointmentId = nat;
+type Appointment = 
+ record {
+   clientEmail: text;
+   clientName: text;
+   clientPhone: text;
+   createdAt: Timestamp;
+   date: text;
+   id: AppointmentId;
+   referenceNumber: text;
+   serviceId: ServiceId;
+   startTime: text;
+   status: AppointmentStatus;
+   stylistId: StylistId;
+ };
+service : {
+  bookAppointment: (request: BookingRequest) -> (BookingResult);
+  cancelAppointment: (referenceNumber: text) -> (bool);
+  claimAdmin: () -> (bool);
+  completeAppointment: (appointmentId: AppointmentId) -> (bool);
+  getAdmin: () -> (principal) query;
+  getAllAppointments: () -> (vec Appointment) query;
+  getAppointmentByReference: (referenceNumber: text) ->
+   (opt Appointment) query;
+  getAvailableSlots: (date: text, stylistId: StylistId) ->
+   (vec TimeSlot) query;
+  getServices: () -> (vec Service) query;
+  getStylists: () -> (vec StylistPublic) query;
+  updateServicePricing: (serviceId: ServiceId, newPrice: nat) -> (bool);
+  updateStylistAvailability: (stylistId: StylistId, available: bool) ->
+   (bool);
+}

@@ -1,0 +1,23 @@
+{
+  "overview": "19 Studio is a professional hair salon booking website where clients can browse services, choose a stylist, pick available time slots, and confirm appointments online. Studio admins can manage all bookings from a protected dashboard.",
+  "features": [
+    "Service selection with pricing (Haircut, Color, Blowout, Consultation)",
+    "Stylist selection from the team",
+    "Interactive calendar with available time slots",
+    "Client booking form with name, email, and phone",
+    "Booking confirmation with reference number",
+    "Protected admin dashboard to manage all appointments",
+    "Admin ability to cancel or complete bookings",
+    "Mobile-friendly responsive layout",
+    "19 Studio branded hero and navigation"
+  ],
+  "category": "productivity",
+  "tags": [
+    "booking",
+    "hair-salon",
+    "appointments",
+    "scheduling",
+    "admin-dashboard"
+  ],
+  "last_updated": "2026-04-09T08:38:02.957Z"
+}
