@@ -5,7 +5,9 @@ import {
   CheckCircle2,
   Clock,
   Copy,
+  Phone,
   Scissors,
+  Smartphone,
   User,
 } from "lucide-react";
 import { motion } from "motion/react";
@@ -253,6 +255,50 @@ export default function ConfirmPage() {
                 />
               )}
             </div>
+
+            {/* eSewa Payment Instructions */}
+            {service && (
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
+                className="rounded-xl border border-green-500/30 bg-green-500/8 px-5 py-4 mb-6"
+                data-ocid="esewa-payment-info"
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-7 h-7 rounded-lg bg-green-500/15 flex items-center justify-center shrink-0">
+                    <Smartphone className="w-3.5 h-3.5 text-green-600" />
+                  </div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-green-700 dark:text-green-400">
+                    Payment Instructions
+                  </p>
+                </div>
+                <p className="text-sm text-foreground mb-1">
+                  Please send payment via{" "}
+                  <span className="font-bold text-green-600 dark:text-green-400">
+                    eSewa
+                  </span>
+                </p>
+                <div className="flex items-center gap-2 mt-2 mb-3">
+                  <Phone className="w-3.5 h-3.5 text-green-600 shrink-0" />
+                  <span className="text-sm font-mono font-bold text-foreground tracking-wide">
+                    +977 976-6466795
+                  </span>
+                </div>
+                <div className="flex items-center justify-between bg-green-500/10 rounded-lg px-3 py-2">
+                  <span className="text-xs text-muted-foreground">
+                    Amount to pay
+                  </span>
+                  <span className="text-base font-bold text-green-600 dark:text-green-400">
+                    Rs. {Number(service.price)}
+                  </span>
+                </div>
+                <p className="text-[10px] text-muted-foreground mt-2 leading-relaxed">
+                  Screenshot your payment and show it at the salon. Booking is
+                  reserved once payment is received.
+                </p>
+              </motion.div>
+            )}
 
             {/* Actions */}
             <div className="flex flex-col gap-3">

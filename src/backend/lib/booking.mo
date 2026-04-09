@@ -256,10 +256,8 @@ module {
   // ── Seed helpers (called once at init) ───────────────────────────────────────
 
   public func seedDefaultServices(services : List.List<Types.Service>) {
-    services.add({ id = 1; name = "Haircut"; description = "Precision cut tailored to your style"; durationMinutes = 30; price = 500 });
-    services.add({ id = 2; name = "Color"; description = "Full color treatment with premium products"; durationMinutes = 90; price = 1500 });
-    services.add({ id = 3; name = "Blowout"; description = "Professional blowout for a sleek finish"; durationMinutes = 45; price = 800 });
-    services.add({ id = 4; name = "Consultation"; description = "Free style consultation with a stylist"; durationMinutes = 15; price = 0 });
+    services.add({ id = 1; name = "Haircut"; description = "Classic haircut tailored to your style."; durationMinutes = 45; price = 500 });
+    services.add({ id = 2; name = "Beard"; description = "Professional beard trim and shaping"; durationMinutes = 30; price = 150 });
   };
 
   public func seedDefaultStylists(stylists : List.List<Types.Stylist>) {

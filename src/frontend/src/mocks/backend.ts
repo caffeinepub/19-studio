@@ -40,7 +40,7 @@ export const mockBackend: backendInterface = {
       createdAt: BigInt(Date.now()),
       clientEmail: "sophia@example.com",
       clientPhone: "+49 170 1234567",
-      serviceId: BigInt(1),
+      serviceId: BigInt(2),
     },
     {
       id: BigInt(2),
@@ -66,7 +66,7 @@ export const mockBackend: backendInterface = {
       createdAt: BigInt(Date.now()),
       clientEmail: "amara@example.com",
       clientPhone: "+49 172 5554433",
-      serviceId: BigInt(3),
+      serviceId: BigInt(2),
     },
     {
       id: BigInt(4),
@@ -79,7 +79,7 @@ export const mockBackend: backendInterface = {
       createdAt: BigInt(Date.now()),
       clientEmail: "mia@example.com",
       clientPhone: "+49 173 7778899",
-      serviceId: BigInt(1),
+      serviceId: BigInt(2),
     },
   ],
 
@@ -94,7 +94,7 @@ export const mockBackend: backendInterface = {
     createdAt: BigInt(Date.now()),
     clientEmail: "sophia@example.com",
     clientPhone: "+49 170 1234567",
-    serviceId: BigInt(1),
+      serviceId: BigInt(2),
   }),
 
   getAvailableSlots: async (date, stylistId) => [
@@ -109,31 +109,17 @@ export const mockBackend: backendInterface = {
   getServices: async () => [
     {
       id: BigInt(1),
-      name: "Signature Cut",
-      description: "A precision cut tailored to your face shape and hair texture, finished with a blowout.",
-      durationMinutes: BigInt(60),
+      name: "Haircut",
+      description: "Classic haircut tailored to your style.",
+      durationMinutes: BigInt(45),
       price: BigInt(500),
     },
     {
       id: BigInt(2),
-      name: "Cut & Color",
-      description: "Full color service paired with a precision cut. Includes toner and blowout finish.",
-      durationMinutes: BigInt(120),
-      price: BigInt(1200),
-    },
-    {
-      id: BigInt(3),
-      name: "Balayage",
-      description: "Hand-painted highlights for a soft, sun-kissed gradient effect. Naturally lived-in.",
-      durationMinutes: BigInt(150),
-      price: BigInt(1800),
-    },
-    {
-      id: BigInt(4),
-      name: "Blowout",
-      description: "Professional blowout for sleek, voluminous results that last. No cut included.",
-      durationMinutes: BigInt(45),
-      price: BigInt(350),
+      name: "Beard",
+      description: "Professional beard trim and shaping — clean lines, sharp edges, and a refined finish.",
+      durationMinutes: BigInt(30),
+      price: BigInt(150),
     },
   ],
 

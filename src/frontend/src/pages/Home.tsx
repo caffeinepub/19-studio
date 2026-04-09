@@ -7,9 +7,11 @@ import {
   Calendar,
   CheckCircle2,
   Clock,
+  Phone,
   Scissors,
   Sparkles,
   Star,
+  Wallet,
 } from "lucide-react";
 import { motion } from "motion/react";
 import { Layout } from "../components/layout/Layout";
@@ -21,51 +23,18 @@ import type { Service, StylistPublic } from "../types/booking";
 const MOCK_SERVICES: Service[] = [
   {
     id: 1n,
-    name: "Signature Cut",
-    durationMinutes: 60n,
+    name: "Haircut",
+    durationMinutes: 45n,
     price: 500n,
-    description:
-      "A precision cut tailored to your face shape and lifestyle, finished with a professional blow-dry.",
+    description: "Classic haircut tailored to your style.",
   },
   {
     id: 2n,
-    name: "Color & Gloss",
-    durationMinutes: 90n,
-    price: 500n,
+    name: "Beard",
+    durationMinutes: 30n,
+    price: 150n,
     description:
-      "Full-color treatment using premium demi-permanent formulas for rich, long-lasting shine.",
-  },
-  {
-    id: 3n,
-    name: "Balayage",
-    durationMinutes: 120n,
-    price: 500n,
-    description:
-      "Hand-painted highlights that grow out naturally with zero harsh lines. The ultimate low-maintenance look.",
-  },
-  {
-    id: 4n,
-    name: "Keratin Treatment",
-    durationMinutes: 150n,
-    price: 500n,
-    description:
-      "Smoothing treatment that eliminates frizz and cuts styling time in half — for up to 4 months.",
-  },
-  {
-    id: 5n,
-    name: "Scalp Treatment",
-    durationMinutes: 45n,
-    price: 500n,
-    description:
-      "A nourishing scalp ritual with hot oil massage and targeted serums for a healthy foundation.",
-  },
-  {
-    id: 6n,
-    name: "Blowout & Style",
-    durationMinutes: 45n,
-    price: 500n,
-    description:
-      "Volume, texture, and polish — a professional finish that lasts days, not hours.",
+      "Professional beard trim and shaping — clean lines, sharp edges, and a refined finish.",
   },
 ];
 
@@ -295,6 +264,46 @@ export default function HomePage() {
                 </Button>
               </a>
             </div>
+
+            {/* Contact & eSewa info strip */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.45, ease: "easeOut" }}
+              className="mt-8 flex flex-col sm:flex-row gap-3"
+              data-ocid="hero-contact-esewa"
+            >
+              <a
+                href="tel:+9779766466795"
+                className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-background/80 backdrop-blur-sm border border-border/60 hover:border-accent/50 transition-smooth group"
+                aria-label="Call us at +977 976-6466795"
+              >
+                <div className="h-8 w-8 rounded-lg bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-smooth">
+                  <Phone className="h-4 w-4 text-accent" strokeWidth={1.5} />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground leading-none mb-0.5">
+                    Call Us
+                  </p>
+                  <p className="text-sm font-semibold text-foreground font-display">
+                    +977 976-6466795
+                  </p>
+                </div>
+              </a>
+              <div className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-accent/10 border border-accent/20 backdrop-blur-sm">
+                <div className="h-8 w-8 rounded-lg bg-accent/20 flex items-center justify-center shrink-0">
+                  <Wallet className="h-4 w-4 text-accent" strokeWidth={1.5} />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground leading-none mb-0.5">
+                    Pay via eSewa
+                  </p>
+                  <p className="text-sm font-semibold text-accent font-display">
+                    +977 976-6466795
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Hero stats */}

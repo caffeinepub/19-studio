@@ -1,5 +1,5 @@
 import { useNavigate } from "@tanstack/react-router";
-import { Check, ChevronLeft } from "lucide-react";
+import { Check, ChevronLeft, Wallet } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useMemo, useState } from "react";
 import { Layout } from "../components/layout/Layout";
@@ -574,6 +574,49 @@ function ConfirmStep({
             {error}
           </div>
         )}
+        {/* eSewa payment instructions — shown before confirming */}
+        <div
+          className="rounded-xl border border-accent/30 bg-accent/5 px-4 py-4 mb-5"
+          data-ocid="esewa-payment-info"
+        >
+          <div className="flex items-center gap-2.5 mb-3">
+            <div className="h-8 w-8 rounded-lg bg-accent/15 flex items-center justify-center shrink-0">
+              <Wallet className="h-4 w-4 text-accent" strokeWidth={1.5} />
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-foreground font-display leading-none mb-0.5">
+                Pay via eSewa
+              </p>
+              <p className="text-xs text-muted-foreground">
+                Complete payment after confirming your booking
+              </p>
+            </div>
+          </div>
+          <div className="space-y-1.5 text-sm">
+            <div className="flex items-center justify-between">
+              <span className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
+                eSewa Account
+              </span>
+              <span className="font-semibold text-accent font-display">
+                +977 976-6466795
+              </span>
+            </div>
+            {service && (
+              <div className="flex items-center justify-between">
+                <span className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
+                  Amount Due
+                </span>
+                <span className="font-bold text-accent font-display">
+                  Rs. {Number(service.price)}
+                </span>
+              </div>
+            )}
+          </div>
+          <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
+            Send the exact amount to the eSewa number above. Use your name as
+            the payment remark.
+          </p>
+        </div>
         <Button
           variant="hero"
           size="lg"

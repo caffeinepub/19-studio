@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Link, useRouter } from "@tanstack/react-router";
-import { Menu, Scissors, X } from "lucide-react";
+import { Menu, Phone, Scissors, X } from "lucide-react";
 import { useState } from "react";
 
 const NAV_LINKS = [
@@ -63,6 +63,16 @@ export function Header() {
               {label}
             </Link>
           ))}
+          {/* Contact phone */}
+          <a
+            href="tel:+9779766466795"
+            className="flex items-center gap-1.5 text-body text-sm text-muted-foreground hover:text-foreground transition-smooth"
+            data-ocid="nav-phone"
+            aria-label="Call 19 Studio"
+          >
+            <Phone className="h-3.5 w-3.5 shrink-0" strokeWidth={1.5} />
+            <span className="tracking-wide">+977 976-6466795</span>
+          </a>
           <Link to="/book" data-ocid="nav-cta-book">
             <Button variant="accent" size="sm">
               Book Now
